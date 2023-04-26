@@ -43,7 +43,7 @@ public class DearImGregEntry extends Abstract_Mod {
 
     @Override
     public void onModPostInit2(FMLPostInitializationEvent aEvent) {
-        Registry.changeDefaultItemBehavior();
+
     }
 
     @Override

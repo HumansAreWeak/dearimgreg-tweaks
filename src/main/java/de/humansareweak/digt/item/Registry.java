@@ -3,9 +3,11 @@ package de.humansareweak.digt.item;
 import cpw.mods.fml.common.registry.GameRegistry;
 import de.humansareweak.digt.Tags;
 import de.humansareweak.digt.item.aoe_tool.DIG_AOETool;
+import de.humansareweak.digt.item.overrides.DIG_Tool_Axe;
 import de.humansareweak.digt.item.overrides.DIG_Tool_DoubleAxe;
 import de.humansareweak.digt.item.aoe_tool.DIG_Tool_MiningHammer;
 import de.humansareweak.digt.item.aoe_tool.DIG_Tool_Excavator;
+import de.humansareweak.digt.item.overrides.DIG_Tool_Pickaxe;
 import gregapi.code.ICondition;
 import gregapi.code.IItemContainer;
 import gregapi.data.*;
@@ -45,7 +47,7 @@ public class Registry {
             DIGT_AOE_Tools.addTool(
                 DIG_Tools.MiningHammer,
                 "Mining Hammer",
-                "Swing that hammer!",
+                "Swing that hammer",
                 DIG_Tool_MiningHammer.INSTANCE.setMaterialAmount(toolHeadMiningHammer.mAmount),
                 miningHammer,
                 OreDictToolNames.pickaxe
@@ -87,28 +89,21 @@ public class Registry {
 
         final String category = "";
 
-        toolHeadMiningHammer.addListener(new OreProcessing_Tool(MiningHammer, category + "MiningHammer", T, F, 0, 0, null, null, new String[][] {{" B ", "PII", "hBf"}}, null, null, null, null, null, new ICondition.And<>(ANTIMATTER.NOT)));
-        Items.toolHeadExcavator.addListener(new OreProcessing_Tool(Excavator, category + "Spade", T, F, 0, 0, null, null, new String[][] {{" P ", "PIP", "hIf"}}, null, null, null, null, null, new ICondition.And<>(ANTIMATTER.NOT)));
+        toolHeadMiningHammer.addListener(new OreProcessing_Tool(MiningHammer, category + "MiningHammer", T, F, 0, 0, null, new String[][] {{" BH", "PII", "hBf"}, {" CH", "CGG", " Cf"}}, new String[][] {{" B ", "PII", "hBf"}, {" C ", "CGG", " Cf"}}, null, null, null, null, null, new ICondition.And<>(ANTIMATTER.NOT)));
+        toolHeadExcavator.addListener(new OreProcessing_Tool(Excavator, category + "Spade", T, F, 0, 0, null, new String[][] {{" PH", "PIP", "hIf"}, {" CH", "CGC", " Gf"}}, new String[][] {{" P ", "PIP", "hIf"}, {" C ", "CGC", " Gf"}}, null, null, null, null, null, new ICondition.And<>(ANTIMATTER.NOT)));
 
         GameRegistry.addRecipe(new AdvancedCraftingTool(DIGT_AOE_Tools, MiningHammer, toolHeadMiningHammer, MT.Bronze));
-        GameRegistry.addRecipe(new AdvancedCraftingTool(DIGT_AOE_Tools, Excavator, Items.toolHeadExcavator, MT.Bronze));
+        GameRegistry.addRecipe(new AdvancedCraftingTool(DIGT_AOE_Tools, Excavator, toolHeadExcavator, MT.Bronze));
 
         replaceGtMetaToolStats(ToolsGT.DOUBLE_AXE, DIG_Tool_DoubleAxe.INSTANCE);
+        replaceGtMetaToolStats(ToolsGT.AXE, DIG_Tool_Axe.INSTANCE);
+        replaceGtMetaToolStats(ToolsGT.PICKAXE, DIG_Tool_Pickaxe.INSTANCE);
     }
 
     private static void replaceGtMetaToolStats(short aItemId, IToolStats stats) {
         ToolsGT.sMetaTool.mToolStats.put(aItemId, stats);
         ToolsGT.sMetaTool.mToolStats.put((short)(aItemId+1), stats);
     }
-
-    public static void registerListeners() {
-        // MinecraftForge.EVENT_BUS.register(new EventHandler());
-    }
-
-    public static void changeDefaultItemBehavior() {
-
-    }
-
 
     public static class OreProcessing_Tool implements IOreDictListenerEvent {
         private final ICondition<OreDictMaterial> mCondition;
