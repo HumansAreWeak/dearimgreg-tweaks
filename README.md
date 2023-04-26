@@ -2,6 +2,8 @@
 
 <p style="text-align: center">Official Tweaking mod for the Dear ImGreg Modpack featuring GregTech 6</p>
 
+[![Build and test](https://github.com/HumansAreWeak/dearimgreg-tweaks/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/HumansAreWeak/dearimgreg-tweaks/actions/workflows/build-and-test.yml)
+[![Release tagged build](https://github.com/HumansAreWeak/dearimgreg-tweaks/actions/workflows/release-tags.yml/badge.svg)](https://github.com/HumansAreWeak/dearimgreg-tweaks/actions/workflows/release-tags.yml)
 ## Description
 
 This mod was made specifically for the (not yet released) modpack **Dear ImGreg** to open up GT6 to new players
