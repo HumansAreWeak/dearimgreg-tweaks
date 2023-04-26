@@ -9,6 +9,6 @@ public class DIG_Tool_DoubleAxe extends GT_Tool_AxeDouble {
 
     @Override
     public float getSpeedMultiplier() {
-        return 2.5F;
+        return 1.5F;
     }
 }

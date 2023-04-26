@@ -41,7 +41,7 @@ dependencies {
 
     // These default dependencies are required to use the basics of GT6's API.  Some
     // other usages may require more dependencies to be enabled.
-    api "com.github.GTNewHorizons:NotEnoughItems:2.3.28-GTNH:dev"
+    api "com.github.GTNewHorizons:NotEnoughItems:2.3.45-GTNH:dev"
     api "com.github.GTNewHorizons:ForgeMultipart:1.3.2:dev"
     compileOnly "com.github.GTNewHorizons:AppleCore:3.2.10:dev"
     compileOnly "appeng:appliedenergistics2:rv3-beta-6:dev"

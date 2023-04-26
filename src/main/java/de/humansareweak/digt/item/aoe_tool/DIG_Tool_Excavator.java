@@ -19,7 +19,7 @@ public class DIG_Tool_Excavator extends GT_Tool_Shovel {
 
     @Override public float getBaseDamage()              { return 2.0F; }
 
-    @Override public float getMaxDurabilityMultiplier() { return 2.5f; }
+    @Override public float getMaxDurabilityMultiplier() { return 1.5f; }
 
     @Override
     public IIconContainer getIcon(boolean aIsToolHead, ItemStack aStack) {

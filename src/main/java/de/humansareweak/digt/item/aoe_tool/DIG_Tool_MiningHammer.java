@@ -18,7 +18,7 @@ public class DIG_Tool_MiningHammer extends GT_Tool_Pickaxe {
     @Override public int getToolDamagePerBlockBreak()   { return  25; }
     @Override public int getToolDamagePerEntityAttack() { return 150; }
     @Override public float getBaseDamage()              { return 4.5F; }
-    @Override public float getMaxDurabilityMultiplier() { return 2.5f; }
+    @Override public float getMaxDurabilityMultiplier() { return 1.5f; }
 
     private DIG_Tool_MiningHammer() {}
 
